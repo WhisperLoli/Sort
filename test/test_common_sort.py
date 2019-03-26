@@ -45,6 +45,8 @@ class MyTest(unittest.TestCase):  # 继承unittest.TestCase
 
         print("堆排序结果:" + str(Sort.heap_sort(data)))
 
+        print("原始快速排序结果:" + str(Sort.quick_sort_origin(data,0,len(data)-1)))
+
 
 if __name__ == "__main__":
 

@@ -15,6 +15,29 @@ class Sort:
                 list(filter(lambda x: x > data[0], data)))
 
     @classmethod
+    def quick_sort_origin(self, data, left, right):
+        """普通快速排序"""
+        if left >= right:
+            return data
+        else:
+            tmp = data[left]
+            high = right
+            low = left
+
+            while left < right:
+                while left < right and data[right] >= tmp:
+                    right -= 1
+                data[left] = data[right]
+                while left < right and data[left] <= tmp:
+                    left += 1
+                data[right] = data[left]
+            data[right] = tmp
+
+            self.quick_sort_origin(data,low,left -1)
+            self.quick_sort_origin(data,left+1,high)
+        return data
+
+    @classmethod
     def bubble_sort(self, data_bak):
         """冒泡排序"""
         data = copy.copy(data_bak)
